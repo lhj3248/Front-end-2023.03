@@ -1,0 +1,40 @@
+    <!DOCTYPE html>
+    <html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>dice</title>
+        <script>
+                function Money() {
+                let dice1 = parseInt(Math.ceil(Math.random() * 6));  
+                let dice2 = parseInt(Math.ceil(Math.random() * 6)); //랜덤 주사위 값
+                let dice3 = parseInt(Math.ceil(Math.random() * 6));
+                console.log(dice1, dice2, dice3);
+                let Money = 0;
+                let resTag = document.getElementById('result');
+                if (dice1 == dice2 && dice2 == dice3)
+                    Money = 10000 + (dice1 * 1000);
+
+                else if (dice1 == dice2 && dice1 != dice3)
+                    Money = 1000 + (dice1 * 100);
+                else if (dice2 == dice1 && dice2 != dice3)
+                    Money = 1000 + (dice1 * 100);
+                else if (dice3 == dice1 && dice3 != dice2)
+                    Money = 1000 + (dice2 * 100);
+
+                else {
+                    let maxval = (dice1 > dice2) ? dice1 : dice2;
+                        maxval = (maxval > dice3) ? maxval : dice3;
+                        
+                    Money = maxval * 100;
+                }
+                resTag.innerHTML = `${dice1}, ${dice2}, ${dice3} 상금 : ${Money}`;
+            }    
+        </script>
+    </head>
+    <body style="margin: 80px;">    
+        <button onclick="Money()">랜덤주사위/상금</button>
+        <p id="result"></p>
+    </body>
+    </html>
