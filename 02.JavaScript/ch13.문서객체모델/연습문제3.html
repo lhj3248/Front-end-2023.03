@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>가격 내림차순 정렬 예시</title>
+  </head>
+  <body>
+    <div id="output"></div>
+    <script>
+      const prices = "51900;83000;158000;367500;250000;59200;128500;1304000";
+      const sortedPrices = prices.split(";").map(Number).sort((a, b) => b - a);
+      const outputDiv = document.getElementById("output");
+      const list = document.createElement("ul");
+      sortedPrices.forEach(price => {
+        const item = document.createElement("li");
+        item.textContent = price.toLocaleString();
+        list.appendChild(item);
+      });
+      outputDiv.appendChild(list);
+    </script>
+  </body>
+</html>
+
+
+<!-- 문제 3.
+입력으로 받은 다음의 가격을 내림차순으로 출력하는 프로그램을 만드세요.
+51900;83000;158000;367500;250000;59200;128500;1304000 -->
